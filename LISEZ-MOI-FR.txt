@@ -1,0 +1,38 @@
+STREMIO GLASS — PACK ONE SHOT
+================================
+
+CE QUE C'EST
+Une PWA indépendante optimisée pour Safari/iPad, avec interface sombre Liquid Glass, gestion des addons, lecture de manifestes, catalogues, fiches, récupération des streams et lecture HTML5 des liens vidéo directs compatibles.
+
+INSTALLER SUR TON IPAD (SANS MAC)
+1. Télécharge et décompresse le ZIP.
+2. Depuis Safari, connecte-toi à GitHub et ouvre ton dépôt utilisé pour Stremio Glass.
+3. Remplace les fichiers du dépôt par TOUS les fichiers de ce dossier : index.html, sw.js, manifest.webmanifest, icon-192.png et icon-512.png.
+4. Dans GitHub, valide les changements (Commit changes) sur la branche publiée par GitHub Pages.
+5. Attends que GitHub Pages termine le déploiement.
+6. Ouvre l'adresse HTTPS du site dans Safari sur l'iPad et actualise.
+7. Safari > Partager > Ajouter à l'écran d'accueil.
+8. Lance Stremio Glass depuis l'écran d'accueil.
+
+UTILISATION
+- Addons : colle l'URL HTTPS du manifeste puis Ajouter.
+- Les addons sont enregistrés dans le stockage local de Safari sur cet appareil.
+- Active/désactive ou supprime un addon dans la page Addons.
+- Actualiser recharge les catalogues déclarés par les addons actifs.
+- Touche une affiche pour consulter la fiche et interroger les addons qui annoncent la ressource stream.
+- Les flux HTTP(S) directs compatibles peuvent être lus dans le lecteur intégré.
+
+LIMITES TECHNIQUES À CONNAÎTRE
+1. Un addon Stremio doit annoncer les ressources et types qu'il fournit. Le client respecte les ressources catalog, meta et stream et les préfixes d'identifiants lorsqu'ils sont déclarés.
+2. Safari/PWA n'est pas un proxy serveur : les addons dont le serveur n'autorise pas CORS peuvent échouer. Il faut alors un backend/proxy autorisé et sécurisé, pas un contournement arbitraire.
+3. Cinemeta fournit des catalogues et métadonnées, pas les flux vidéo.
+4. Les objets Torrentio avec infoHash/fileIdx sont des références torrent, pas des URL vidéo. Le lecteur HTML5 ne sait pas les lire. Un moteur BitTorrent et une architecture de streaming compatibles iPadOS restent nécessaires. Ce pack ne prétend pas les lire.
+5. Les URL vidéo directes peuvent échouer si le codec n'est pas pris en charge par Safari, si le serveur bloque CORS/range requests, ou si le flux demande une authentification.
+6. Les catalogues qui nécessitent des paramètres de recherche, genre ou configuration spécifique peuvent ne pas être entièrement explorés dans cette première version.
+7. L'app ne se connecte pas au compte Stremio et ne synchronise pas la bibliothèque, la progression ni les favoris.
+
+ALTSTORE PAL ET APPLICATION NATIVE
+Ce pack est une PWA installée depuis Safari, pas une IPA. AltStore PAL ne compile pas les projets Swift. Pour distribuer une application native via PAL, il faut un binaire signé, un compte Apple Developer payant, une notarisation et un paquet ADP/source. Un projet natif doit être compilé sur macOS avec Xcode ou un service macOS distant. Références : https://faq.altstore.io/developers/distribute-with-altstore-pal et https://developer.altstore.io/.
+
+SÉCURITÉ ET DROITS
+N'ajoute pas de mots de passe, cookies ou jetons privés dans un manifeste. Utilise uniquement des sources auxquelles tu as légalement accès et respecte les conditions des fournisseurs.
